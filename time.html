@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>CSS 예약 시간</h2>
+    <label for="start1">시작 시간: </label>
+    <input type="time" id="start1" value="09:00">
+    <label for="start2">종료 시간: </label>
+    <input type="time" id="start2" value="18:00">
+    <h2>예약 시간을 선택하세요(다른 날짜)</h2>
+    <label for="end1">시작 시간: </label>
+    <input type="datetime-local" id="end1" value="2020-03-02T09:00">
+    <label for="end2">종료 시간: </label>
+    <input type="datetime-local" id="end2" value="2020-03-02T18:00">
+
+<script>
+function toDateString(date)
+{
+            var formatedDate = new Date(date);
+            return formatedDate;
+}
+$(results['records']).each(function() {
+ if(startDateObj < toDateString(this[1]) && endDateObj > toDateString(this[0])) 
+{
+//overlaps
+$(results['records']).each(function() {
+console.log('end:' + this[1])
+console.log('start:' + this[0])
+ if(startDateObj < this[1].end && endDateObj > this[0].start) {
+alert('this overlaps')
+  }
+  });
+}});
+</script>
+</body>
+</html>
